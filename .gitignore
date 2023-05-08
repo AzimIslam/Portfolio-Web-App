@@ -1,0 +1,38 @@
+# Django
+*.pyc
+__pycache__/
+*.sqlite3
+*.env
+
+# React.js
+node_modules
+build
+
+# IDE/Editor
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Compiled source
+*.com
+*.classg
+*.dll
+*.exe
+*.o
+*.so
+
+# Miscellaneous
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+tmp/
+temp/

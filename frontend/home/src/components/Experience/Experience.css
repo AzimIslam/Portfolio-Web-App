@@ -1,0 +1,17 @@
+#experience {
+    background-color: #D8973C;
+}
+
+#experienceContainer {
+    padding: 20px;
+}
+
+#experienceTitle {
+    color: white;
+    font-weight: 100;
+}
+
+.experiences {
+    display: flex;
+    justify-content: center;
+}

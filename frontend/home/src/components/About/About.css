@@ -1,0 +1,21 @@
+#about {
+    padding-top: 2em;
+    padding: 2em;
+    width: 50%;
+    margin: auto;
+}
+
+#aboutTitle {
+    font-weight: 100;
+}
+
+#profilePic {
+    border-radius: 100%;
+    width: 256px;
+    height: 256px;
+}
+
+#aboutDescription {
+    font-size: 1.25em;
+    font-weight: 100;
+}

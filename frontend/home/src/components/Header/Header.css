@@ -1,0 +1,52 @@
+#header {
+    background-color: #273E47;
+    margin: auto;
+    padding: 40px;
+}
+
+#name {
+    color: #D8C99B;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 60pt;
+    display: block;
+    padding: 20px;
+    border: 10px solid #D8C99B;
+    line-height: 1;
+    width: fit-content;
+    margin: auto;
+}
+
+#title {
+    color: #D8C99B;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.25em;
+}
+
+.header-container {
+    width: 50%;
+    margin: auto;
+    padding-top: 2em ;
+}
+
+#punchline {
+    color: #D8C99B;
+    font-weight: lighter;
+    font-size: 1em;
+    margin: auto;
+    width: 80%;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px 10px;
+    background-color: #A4243B;
+    font-weight: 100;
+    border-radius: 10px;
+    margin-top: 2em;
+    font-size: 12pt;
+}
