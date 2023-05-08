@@ -15,3 +15,15 @@
     display: flex;
     justify-content: center;
 }
+
+.field * {
+    margin: 0;
+}
+
+.field {
+    padding-top: 10px;
+}
+
+.skills {
+    margin-top: 0.5em;
+}

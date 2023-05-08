@@ -5,7 +5,8 @@ import About from './components/About/About';
 import Experience from './components/Experience/Experience';
 import { useEffect, useState } from 'react';
 
-
+// Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 

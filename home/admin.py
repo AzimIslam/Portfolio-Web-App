@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Homepage, Experience, Skill
+from .models import Homepage, Experience, Skill, Responsibility
 
 # Register your models here.
 @admin.register(Homepage)
@@ -8,8 +8,12 @@ class HomepageAdmin(admin.ModelAdmin):
 
 @admin.register(Experience)
 class ExperienceAdmin(admin.ModelAdmin):
-    list_display = ["company", "job_title", "logo", "start_date", "end_date", "company_description", "experience_description"]
+    list_display = ["company", "job_title", "logo", "start_date", "end_date", "company_description", "present"]
 
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ["name", "logo"]
+
+@admin.register(Responsibility)
+class ResponsibilityAdmin(admin.ModelAdmin):
+    list_display = ["description"]

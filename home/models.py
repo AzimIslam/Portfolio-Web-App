@@ -41,7 +41,7 @@ class Experience(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     company_description = models.TextField()
-    experience_description = models.TextField()
+    experience_description = models.ManyToManyField("Responsibility")
     skills = models.ManyToManyField("Skill")
     present = models.BooleanField(default=True)
 
@@ -56,8 +56,9 @@ class Experience(models.Model):
             "start_date": self.start_date,
             "end_date": self.end_date,
             "company_description": self.company_description,
-            "experience_description": self.experience_description,
+            "experience_description": [str(responsibility) for responsibility in self.experience_description.all()],
             "skills": [skill.to_dict() for skill in self.skills.all()],
+            "present": self.present,
         }
     
 class Skill(models.Model):
@@ -71,4 +72,20 @@ class Skill(models.Model):
         return {
             "name": self.name,
             "logo": self.logo.url,
+        }
+    
+class Responsibility(models.Model):
+    class Meta:
+        verbose_name_plural = "Responsibilities"
+
+    description = models.TextField()
+    Experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.description
+
+    def to_dict(self):
+        return {
+            "description": self.description,
+            "company": self.experience.company,
         }
