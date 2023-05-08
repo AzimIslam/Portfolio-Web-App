@@ -21,7 +21,7 @@ export default function Experience() {
     const [experiences, setExperiences] = useState([]);
 
     // This state handles the opening and closing of the modal
-    const [openModal, setOpenModal] = useState(false);
+    const [openModals, setOpenModals] = useState([]);
 
     // This function calculates the duration of the work experience
     function calculateDuration(yearsDiff, monthsDiff) {
@@ -49,6 +49,10 @@ export default function Experience() {
         getExperiences();
     }, []);
 
+    useEffect(() => {
+        setOpenModals(experiences.map(() => false));
+    }, [experiences]);
+
     return (
         <div id="experience">
             <div id="experienceContainer">
@@ -56,7 +60,7 @@ export default function Experience() {
                 
                 <div className='experiences'>
                     {
-                        experiences.map((experience) => { 
+                        experiences.map((experience, index) => { 
                             const start = new Date(experience.start_date);
                             const end = experience.present ? new Date() : new Date(experience.end_date);
 
@@ -66,7 +70,11 @@ export default function Experience() {
                             return (
                                 <>
                                     <Card sx={{ maxWidth: 345 }} style={{margin: 10}}>
-                                        <CardActionArea onClick={() => setOpenModal(true)}>
+                                        <CardActionArea onClick={() => setOpenModals(prevState => {
+                                            const updatedModals = [...prevState];
+                                            updatedModals[index] = true;
+                                            return updatedModals;
+                                        })}>
                                             <CardMedia
                                             style={{
                                                 width: '90%',
@@ -89,7 +97,11 @@ export default function Experience() {
                                         </CardActionArea>
                                     </Card>
 
-                                    <Modal show={openModal} onHide={() => setOpenModal(false)}>
+                                    <Modal show={openModals[index]} onHide={() => setOpenModals(prevState => {
+                                        const updatedModals = [...prevState];
+                                        updatedModals[index] = false;
+                                        return updatedModals;
+                                    })}>
                                         <Modal.Header closeButton>
                                             <Modal.Title>{experience.company}</Modal.Title>
                                         </Modal.Header>
@@ -131,7 +143,7 @@ export default function Experience() {
                                                     {experience.skills.map((skill) => {
                                                         return (
                                                             <Badge bg="white" text="dark" style={{border: "1px solid DarkGrey", padding: "0.5em", margin: "0.25em"}}>
-                                                                <img src={`http://localhost:8000/${skill.logo}`} alt={skill.name} style={{width: "1.5em", height: "1.5em", marginRight: "0.5em", height: "24px", width: "24px"}}/>
+                                                                <img src={`http://localhost:8000/${skill.logo}`} alt={skill.name} style={{marginRight: "0.5em", height: "24px", width: "24px"}}/>
                                                                 {skill.name}
                                                             </Badge>
                                                         );
