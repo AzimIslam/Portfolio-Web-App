@@ -39,4 +39,5 @@ footer {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-top: 1em;
 }
