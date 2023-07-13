@@ -1,7 +1,18 @@
 #header {
     background-color: #273E47;
     margin: auto;
-    padding: 40px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+  
+#header canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 #name {
@@ -26,7 +37,7 @@
 }
 
 .header-container {
-    width: 50%;
+    width: 100%;
     margin: auto;
     padding-top: 2em ;
 }
@@ -36,7 +47,7 @@
     font-weight: lighter;
     font-size: 1em;
     margin: auto;
-    width: 80%;
+    width: 50%;
     padding-bottom: 20px;
     text-align: center;
 }
@@ -51,3 +62,51 @@
     margin-top: 2em;
     font-size: 12pt;
 }
+
+.scroll-down {
+    height: 50px;
+    width: 30px;
+    border: 2px solid #D8C99B;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .scroll-down::before,
+  .scroll-down::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -100%) rotate(45deg);
+    border: 2px solid #D8C99B;
+    border-top: transparent;
+    border-left: transparent;
+    animation: scroll-down 1s ease-in-out infinite;
+  }
+  .scroll-down::before {
+    top: 30%;
+    animation-delay: 0.3s;
+    /* animation: scroll-down 1s ease-in-out infinite; */
+  }
+
+  @keyframes scroll-down {
+    0% {
+      /* top:20%; */
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      top: 90%;
+      opacity: 0;
+    }
+  }
+  

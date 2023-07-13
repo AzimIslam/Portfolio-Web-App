@@ -16,7 +16,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 // Skills component
 export default function Experience() {
-
     // This state stores all work experiences
     const [experiences, setExperiences] = useState([]);
 

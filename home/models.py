@@ -15,6 +15,8 @@ class Homepage(Singleton):
     github = models.URLField(max_length=200)
     email = models.EmailField(max_length=200)
     experiences = models.ManyToManyField("Experience", blank=True)
+    cv = models.URLField(max_length=200)
+    contact_desc = models.TextField(max_length=400, null=True)
 
     def __str__(self) -> str:
         return "Homepage Data"
@@ -29,6 +31,8 @@ class Homepage(Singleton):
             "linkedin": self.linkedin,
             "github": self.github,
             "email": self.email,
+            "cv": self.cv,
+            "contact_desc": self.contact_desc,
         }
     
     def get_experience(self):
