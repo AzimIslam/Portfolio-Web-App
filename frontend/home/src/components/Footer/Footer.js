@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+import React from 'react'
+
 // CSS : /frontend/src/components/Footer/Footer.css
 import './Footer.css'
 
@@ -5,9 +8,8 @@ import './Footer.css'
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from 'react-icons/ai'
 
 // Footer component
-export default function Footer({name, linkedinURL, email, github}) {
-
-    return (
+export default function Footer ({ name, linkedinURL, email, github }) {
+  return (
         <footer>
             <div className="footer-container">
                 <p className="footer-text">© {(new Date()).getFullYear()} {name}</p>
@@ -24,5 +26,12 @@ export default function Footer({name, linkedinURL, email, github}) {
                 </div>
             </div>
         </footer>
-    );
+  )
+}
+
+Footer.propTypes = {
+  name: PropTypes.string.isRequired,
+  linkedinURL: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired
 }
