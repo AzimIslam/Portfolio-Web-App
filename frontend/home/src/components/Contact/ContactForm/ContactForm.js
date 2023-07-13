@@ -37,15 +37,38 @@ export default function ContactForm() {
                 message: message
             }
 
-            // Reset reCAPTCHA and form
-            e.target.reset();
-            recaptchaRef.current.reset();
-
-            mySwal.fire({
-                icon: 'success',
-                title: 'Message Sent!',
-                text: 'Thank you for your message, I will get back to you as soon as possible.',
+            // Send message to database
+            const response = await fetch('http://localhost:8000/home/api/addMessage', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                mySwal.fire({
+                    icon: 'success',
+                    title: 'Message Sent!',
+                    text: 'Thank you for your message, I will get back to you as soon as possible.',
+                });
+
+                // Reset reCAPTCHA and form
+                e.target.reset();
+            }
+            else {
+                mySwal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                });
+            }
+
+            recaptchaRef.current.reset();
+            setNotRobot(false);
+
         }  else {
             mySwal.fire({
                 icon: 'error',
